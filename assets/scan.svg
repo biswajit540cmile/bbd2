@@ -1,0 +1,23 @@
+<svg width="120" height="95" viewBox="0 0 120 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="17" y="17" width="6" height="23" fill="white"/>
+<rect x="27" y="17" width="10" height="23" fill="white"/>
+<rect x="63" y="17" width="10" height="23" fill="white"/>
+<rect x="42" y="17" width="5" height="23" fill="white"/>
+<rect x="78" y="17" width="5" height="23" fill="white"/>
+<rect x="88" y="17" width="5" height="23" fill="white"/>
+<rect x="99" y="17" width="5" height="23" fill="white"/>
+<rect x="52" y="17" width="5" height="23" fill="white"/>
+<rect x="17" y="55" width="6" height="23" fill="white"/>
+<rect x="27" y="55" width="10" height="23" fill="white"/>
+<rect x="63" y="55" width="10" height="23" fill="white"/>
+<rect x="42" y="55" width="5" height="23" fill="white"/>
+<rect x="78" y="55" width="5" height="23" fill="white"/>
+<rect x="88" y="55" width="5" height="23" fill="white"/>
+<rect x="99" y="55" width="5" height="23" fill="white"/>
+<rect x="52" y="55" width="5" height="23" fill="white"/>
+<rect x="6" y="45" width="108" height="6" rx="3" fill="white"/>
+<path d="M4 25.5V8.5C4 6.84315 5.34315 5.5 7 5.5H27" stroke="white" stroke-width="7"/>
+<path d="M96 4L113 4C114.657 4 116 5.34315 116 7L116 27" stroke="white" stroke-width="7"/>
+<path d="M4 70V87C4 88.6569 5.34315 90 7 90H27" stroke="white" stroke-width="7"/>
+<path d="M96 91.5L113 91.5C114.657 91.5 116 90.1569 116 88.5L116 68.5" stroke="white" stroke-width="7"/>
+</svg>
