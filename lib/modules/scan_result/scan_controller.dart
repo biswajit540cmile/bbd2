@@ -9,6 +9,7 @@ class ScanController extends GetxController {
   RxString scanData = ''.obs;
 
   RxMap resultMap = {}.obs;
+  RxMap resultMap1 = {}.obs;
 
 
   Future<void> saveData(value) async{
@@ -25,13 +26,22 @@ class ScanController extends GetxController {
       var value = storeData.read(key);
 
       resultMap[key] = value;
-      update();
+
     });
 
+    final entrie = resultMap.entries.toList().reversed;
+    for (final entry in entrie){
+      resultMap1[entry.key] = entry.value;
+
+    }
+    update();
+//     print(resultMap);
+// print(resultMap1);
 
 
    // Map<dynamic, dynamic> reversedMap = Map.fromEntries(resultMap.entries.toList().reversed);
     // print(reversedMap);
+
 
 
   }

@@ -9,6 +9,7 @@ class ResultPage extends StatelessWidget {
    ScanController controller = Get.put(ScanController());
    controller.saveData(Get.arguments);
 
+
     return Scaffold(
       appBar: AppBar(
         elevation: zero,
@@ -19,12 +20,17 @@ class ResultPage extends StatelessWidget {
             padding: const EdgeInsets.only(right: num20),
             child: InkWell(
                 onTap:() {
+                 // controller.printAllData();
+
                   if (controller.resultMap.isNotEmpty) {
-                    controller.resultMap.remove(controller.resultMap.keys.first);
+
                     controller.storeData.remove(controller.resultMap.keys.first);
+                     controller.resultMap1.remove(controller.resultMap1.keys.last);
+
+                    controller.update();
                  }
                  },
-                child: const Icon(Icons.delete),),
+                child:  Icon(Icons.delete),),
           ),
         ],
         leading: BackButton(
@@ -46,6 +52,7 @@ class ResultPage extends StatelessWidget {
 
               Center(
                 child: Obx(()=>ListView.separated(
+
                   scrollDirection: Axis.vertical,
                   physics:  const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
@@ -54,22 +61,23 @@ class ResultPage extends StatelessWidget {
                       color: Colors.grey
                   ),
 
-                  itemCount: controller.resultMap.length,
+                  itemCount: controller.resultMap1.length,
                   itemBuilder: (BuildContext context, int index){
-                    Map<dynamic, dynamic> reversedMap = Map.fromEntries(controller.resultMap.entries.toList().reversed);
-                    var key = reversedMap.keys.toList();
+                 //   Map<dynamic, dynamic> reversedMap = Map.fromEntries(controller.resultMap1.entries.toList().reversed);
+                    var key = controller.resultMap1.keys.toList();
                    // var key = controller.resultMap.keys.toList().reversed.elementAt(index);
                    // dynamic value = controller.resultMap[key];
 
                     return Center(
                       child: ListTile(
                         leading: null,
-                        title:Center(child: Text('$scanPageTitle ${key[index]}')) ,
-                        subtitle: Center(child: Text('$time ${reversedMap[key[index]]}')),
+                        title:Center(child: Text('$scanPageTitle ${key[index]}')),
+                        subtitle: Center(child: Text('$time ${controller.resultMap1[key[index]]}')),
                       ),
                     );
                   },
-                ),),
+                ),
+                ),
               ),
             ],
           ),
