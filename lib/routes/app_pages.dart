@@ -11,18 +11,18 @@ class AppPages {
   static final List<GetPage> pages = [
     GetPage(
       name: AppRoutes.splash,
-      page: () =>  SplashScreen(),
+      page: () =>  const SplashScreen(),
       binding: ScanBinding(),
     ),
     GetPage(
       name: AppRoutes.home,
-      page: () => HomePage(),
+      page: () => const HomePage(),
       binding: HomeBinding(),
     ),
 
     GetPage(
       name: AppRoutes.scan,
-      page: () => ResultPage(),
+      page: () => const ResultPage(),
       binding: ScanBinding(),
     ),
   ];

@@ -40,14 +40,8 @@ const double e8Dz = 8.0;
 const double zero = 0;
 const double num20 = 20;
 
-
-
-
 //Button part
 const String okBtn = "OK";
-
-
-
 
 //Image link part
 

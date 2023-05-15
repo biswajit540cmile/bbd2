@@ -5,17 +5,11 @@ import 'package:get_storage/get_storage.dart';
 import 'package:intl/intl.dart';
 
 class ScanController extends GetxController {
-  // @override
-  // void onInit() {
-  //   // TODO: implement onInit
-  //   super.onInit();
-  //   printAllData();
-  //   update();
-  // }
   final storeData = GetStorage();
   RxString scanData = ''.obs;
 
   RxMap resultMap = {}.obs;
+
 
   Future<void> saveData(value) async{
     scanData.value = await value;
@@ -33,6 +27,11 @@ class ScanController extends GetxController {
       resultMap[key] = value;
       update();
     });
+
+
+
+   // Map<dynamic, dynamic> reversedMap = Map.fromEntries(resultMap.entries.toList().reversed);
+    // print(reversedMap);
 
 
   }

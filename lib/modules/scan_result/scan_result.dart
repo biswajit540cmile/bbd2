@@ -8,6 +8,7 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
    ScanController controller = Get.put(ScanController());
    controller.saveData(Get.arguments);
+
     return Scaffold(
       appBar: AppBar(
         elevation: zero,
@@ -55,13 +56,16 @@ class ResultPage extends StatelessWidget {
 
                   itemCount: controller.resultMap.length,
                   itemBuilder: (BuildContext context, int index){
-                    var key = controller.resultMap.keys.toList();
+                    Map<dynamic, dynamic> reversedMap = Map.fromEntries(controller.resultMap.entries.toList().reversed);
+                    var key = reversedMap.keys.toList();
+                   // var key = controller.resultMap.keys.toList().reversed.elementAt(index);
+                   // dynamic value = controller.resultMap[key];
+
                     return Center(
                       child: ListTile(
                         leading: null,
                         title:Center(child: Text('$scanPageTitle ${key[index]}')) ,
-                        subtitle: Center(child: Text('$time ${controller.resultMap[key[index]]}')),
-                        // title: Text(controller.time[index]["valueT"]),
+                        subtitle: Center(child: Text('$time ${reversedMap[key[index]]}')),
                       ),
                     );
                   },
