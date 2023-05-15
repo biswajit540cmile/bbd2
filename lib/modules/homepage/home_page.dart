@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../constants/constants.dart';
-import '../scan_result/scan_controller.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -33,7 +33,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScanController controller1 = Get.put(ScanController());
     return GetBuilder<HomeController>(
       builder: (controller) => Scaffold(
           appBar: AppBar(
@@ -42,86 +41,49 @@ class HomePage extends StatelessWidget {
               centerTitle: true,
               title: const Text(projTitle)),
           body: Builder(builder: (BuildContext context) {
-            return SingleChildScrollView(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Container(
-                        height: phnHeight * 0.30,
-                        child: Obx(()=>ListView.separated(
-                          scrollDirection: Axis.vertical,
-                          // physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
+            return Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
 
-                          separatorBuilder: (context, index) => const Divider(
-                              color: Colors.grey
-                          ),
-
-                          itemCount: controller1.resultMap.length,
-                          itemBuilder: (BuildContext context, int index){
-                            var key = controller1.resultMap.keys.toList();
-
-                            return Center(
-                              child: ListTile(
-                                leading: null,
-                                title:Center(child: Text('Scaned Data: ${key[index]}')) ,
-                                subtitle: Center(child: Text('Time: ${controller1.resultMap[key[index]]}')),
-                                // title: Text(controller.time[index]["valueT"]),
-                              ),
-                            );
-                          },
-                        ),),
-                      ),
+                  const Center(
+                    child: Text(
+                      plzClickToTxt,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: num30,
+                          fontFamily: fontInter),
                     ),
-
-
-
-
-
-
-
-
-
-                    const Center(
-                      child: Text(
-                        plzClickToTxt,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: num30,
-                            fontFamily: fontInter),
-                      ),
+                  ),
+                  const Center(
+                    child: Text(
+                      scanTxt,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: num30,
+                          fontFamily: fontInter),
                     ),
-                    const Center(
-                      child: Text(
-                        scanTxt,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: num30,
-                            fontFamily: fontInter),
-                      ),
-                    ),
-                    SizedBox(height: phnHeight * zD12),
-                    SvgPicture.asset(arrowImgLink),
-                    SizedBox(height: phnHeight * zD12),
-                    InkWell(
-                      onTap: scanQR,
-                      child: Container(
-                        height: 56,
-                        width: 56,
-                        decoration: const BoxDecoration(
-                            color: platformDefault, shape: BoxShape.circle),
-                        child: Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(e8Dz),
-                            child: SvgPicture.asset(scanImgLink),
-                          ),
+                  ),
+                  SizedBox(height: phnHeight * zD12),
+                  SvgPicture.asset(arrowImgLink),
+                  SizedBox(height: phnHeight * zD12),
+                  InkWell(
+                    onTap: scanQR,
+                    child: Container(
+                      height: 56,
+                      width: 56,
+                      decoration: const BoxDecoration(
+                          color: platformDefault, shape: BoxShape.circle),
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(e8Dz),
+                          child: SvgPicture.asset(scanImgLink),
                         ),
                       ),
                     ),
-                  ]),
-            );
+                  ),
+                  SizedBox(height: phnHeight * zDz5),
+                ]);
           })),
     );
   }

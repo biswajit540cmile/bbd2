@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
       initialBinding: SplashBinding(),
       home: const SplashScreen(),
       getPages: AppPages.pages,
-
     );
   }
 }
